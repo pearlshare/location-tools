@@ -1,0 +1,17 @@
+{
+  "name": "location-tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "lint": "./node_modules/.bin/eslint ./lib ./test"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^0.24.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^2.3.4"
+  }
+}
