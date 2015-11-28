@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/pearlshare/location-tools.git"
+  },
   "scripts": {
     "test": "mocha",
     "lint": "./node_modules/.bin/eslint ./lib ./test"
