@@ -70,4 +70,32 @@ describe("Rectangle", function () {
       expect(rectangle.eql(otherRectangle)).to.be(false);
     });
   });
+
+  describe("ne", function () {
+    it("should return a Position", function () {
+      var rectangle = new Rectangle(51, 21, 50, 20);
+      expect(rectangle.ne.eql(51, 21)).to.be(true);
+    });
+  });
+
+  describe("nw", function () {
+    it("should return a Position", function () {
+      var rectangle = new Rectangle(51, 21, 50, 20);
+      expect(rectangle.nw.eql(51, 20)).to.be(true);
+    });
+  });
+
+  describe("se", function () {
+    it("should return a Position", function () {
+      var rectangle = new Rectangle(51, 21, 50, 20);
+      expect(rectangle.se.eql(50, 21)).to.be(true);
+    });
+  });
+
+  describe("sw", function () {
+    it("should return a Position", function () {
+      var rectangle = new Rectangle(51, 21, 50, 20);
+      expect(rectangle.sw.eql(50, 20)).to.be(true);
+    });
+  });
 });

@@ -22,6 +22,12 @@ describe("Position", function () {
       expect(position.lon).to.be.a("number").and.to.equal(21);
     });
 
+    it("should convert 'lat, lon' into a position", function () {
+      var position = new Position("51, 21");
+      expect(position.lat).to.be.a("number").and.to.equal(51);
+      expect(position.lon).to.be.a("number").and.to.equal(21);
+    });
+
     it("should convert {lat: 51, lon: 21} into a position", function () {
       var position = new Position({lat: 51, lon: 21});
       expect(position.lat).to.be.a("number").and.to.equal(51);
