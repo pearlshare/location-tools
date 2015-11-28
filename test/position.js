@@ -54,7 +54,9 @@ describe("Position", function () {
     var position = new Position(51, 21);
 
     it("should return an array", function () {
-      expect(position.toArray()).to.eql([51, 21]);
+      expect(position.toArray())
+        .to.be.an("array")
+        .and.to.eql([51, 21]);
     });
   });
 });
