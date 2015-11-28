@@ -98,4 +98,11 @@ describe("Rectangle", function () {
       expect(rectangle.sw.eql(50, 20)).to.be(true);
     });
   });
+
+  describe("toArray()", function () {
+    it("should return an array of arrays", function () {
+      var rectangle = new Rectangle(51, 21, 50, 20);
+      expect(rectangle.toArray()).to.eql([[50, 20], [51, 21]]);
+    });
+  });
 });
