@@ -71,31 +71,39 @@ describe("Rectangle", function () {
     });
   });
 
-  describe("ne", function () {
-    it("should return a Position", function () {
-      var rectangle = new Rectangle(51, 21, 50, 20);
-      expect(rectangle.ne.eql(51, 21)).to.be(true);
-    });
-  });
+  describe("bounds", function () {
+    var rectangle = new Rectangle(51, 21, 50, 20);
 
-  describe("nw", function () {
-    it("should return a Position", function () {
-      var rectangle = new Rectangle(51, 21, 50, 20);
-      expect(rectangle.nw.eql(51, 20)).to.be(true);
+    it("should have a ne", function () {
+      expect(rectangle.bounds.ne.eql(51, 21)).to.be(true);
     });
-  });
 
-  describe("se", function () {
-    it("should return a Position", function () {
-      var rectangle = new Rectangle(51, 21, 50, 20);
-      expect(rectangle.se.eql(50, 21)).to.be(true);
+    it("should have a nw", function () {
+      expect(rectangle.bounds.nw.eql(51, 20)).to.be(true);
     });
-  });
 
-  describe("sw", function () {
-    it("should return a Position", function () {
-      var rectangle = new Rectangle(51, 21, 50, 20);
-      expect(rectangle.sw.eql(50, 20)).to.be(true);
+    it("should have a se", function () {
+      expect(rectangle.bounds.se.eql(50, 21)).to.be(true);
+    });
+
+    it("should have a sw", function () {
+      expect(rectangle.bounds.sw.eql(50, 20)).to.be(true);
+    });
+
+    it("should have a n", function () {
+      expect(rectangle.bounds.n.eql(51, 20.5)).to.be(true);
+    });
+
+    it("should have a e", function () {
+      expect(rectangle.bounds.e.eql(50.5, 21)).to.be(true);
+    });
+
+    it("should have a s", function () {
+      expect(rectangle.bounds.s.eql(50, 20.5)).to.be(true);
+    });
+
+    it("should have a w", function () {
+      expect(rectangle.bounds.w.eql(50.5, 20)).to.be(true);
     });
   });
 
@@ -103,6 +111,27 @@ describe("Rectangle", function () {
     it("should return an array of arrays", function () {
       var rectangle = new Rectangle(51, 21, 50, 20);
       expect(rectangle.toArray()).to.eql([[50, 20], [51, 21]]);
+    });
+  });
+
+  describe("toCircle()", function () {
+    it("should return a Circle instance", function () {
+      var rectangle = new Rectangle(51, 21, 50, 20);
+      var circle = rectangle.toCircle();
+      expect(circle.center.eql(new Position(50.5, 20.5))).to.be(true);
+      expect(circle.radius).to.eql(55619.5);
+    });
+  });
+
+  describe("toObject()", function () {
+    it("should return a plain object with NESW values", function () {
+      var rectangle = new Rectangle(51, 21, 50, 20);
+      expect(rectangle.toObject()).to.eql({
+        n: 51,
+        e: 21,
+        s: 50,
+        w: 20
+      });
     });
   });
 });
