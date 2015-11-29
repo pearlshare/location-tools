@@ -54,9 +54,9 @@ describe("Circle", function () {
       var rect = circle.toRectangle();
       expect(rect).to.be.a(Rectangle);
       expect(rect.n).to.eql(51.0018000018);
-      expect(rect.e).to.eql(21.002860231173);
+      expect(rect.e).to.eql(21.002860231172548);
       expect(rect.s).to.eql(50.9981999982);
-      expect(rect.w).to.eql(20.997139768827);
+      expect(rect.w).to.eql(20.997139768827452);
 
       // For good measure check it converts back
       var newCircle = rect.toCircle();

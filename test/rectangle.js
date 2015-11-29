@@ -29,8 +29,8 @@ describe("Rectangle", function () {
       expect(rectangle.w).to.equal(20);
     });
 
-    it("should construct from a ne, sw Position objects", function () {
-      var rectangle = new Rectangle(new Position(51, 21), new Position(50, 20));
+    it("should construct from a sw, ne Position objects", function () {
+      var rectangle = new Rectangle(new Position(50, 20), new Position(51, 21));
       expect(rectangle).to.be.a(Rectangle);
       expect(rectangle.n).to.equal(51);
       expect(rectangle.e).to.equal(21);
@@ -38,17 +38,26 @@ describe("Rectangle", function () {
       expect(rectangle.w).to.equal(20);
     });
 
-    it("should construct from a couple of location arrays", function () {
-      var rectangle = new Rectangle([51, 21], [50, 20]);
+    it("should construct from a couple of location arrays [[s, w], [n, e]]", function () {
+      var rectangle = new Rectangle([50, 20], [51, 21]);
       expect(rectangle).to.be.a(Rectangle);
       expect(rectangle.n).to.equal(51);
       expect(rectangle.e).to.equal(21);
       expect(rectangle.s).to.equal(50);
       expect(rectangle.w).to.equal(20);
+    });
+
+    it("should construct from a couple of location arrays [[s, w], [n, e]]", function () {
+      var rectangle = new Rectangle([50.81295835907817, -0.11859655380249022], [50.82850692983164, -0.13123512268066403]);
+      expect(rectangle).to.be.a(Rectangle);
+      expect(rectangle.n).to.equal(50.82850692983164);
+      expect(rectangle.e).to.equal(-0.13123512268066403);
+      expect(rectangle.s).to.equal(50.81295835907817);
+      expect(rectangle.w).to.equal(-0.11859655380249022);
     });
 
     it("should construct from a couple of location objects", function () {
-      var rectangle = new Rectangle({lat: 51, lon: 21}, {lat: 50, lon: 20});
+      var rectangle = new Rectangle({lat: 50, lon: 20}, {lat: 51, lon: 21});
       expect(rectangle).to.be.a(Rectangle);
       expect(rectangle.n).to.equal(51);
       expect(rectangle.e).to.equal(21);
