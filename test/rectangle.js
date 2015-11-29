@@ -2,7 +2,7 @@ var expect = require("expect.js");
 var Position = require("../lib/position");
 var Rectangle = require("../lib/rectangle");
 
-describe("Rectangle", function () {
+describe.only("Rectangle", function () {
 
   describe("constructor", function () {
 
@@ -73,37 +73,38 @@ describe("Rectangle", function () {
 
   describe("bounds", function () {
     var rectangle = new Rectangle(51, 21, 50, 20);
+    var bounds = rectangle.getBounds();
 
     it("should have a ne", function () {
-      expect(rectangle.bounds.ne.eql(51, 21)).to.be(true);
+      expect(bounds.ne.eql(51, 21)).to.be(true);
     });
 
     it("should have a nw", function () {
-      expect(rectangle.bounds.nw.eql(51, 20)).to.be(true);
+      expect(bounds.nw.eql(51, 20)).to.be(true);
     });
 
     it("should have a se", function () {
-      expect(rectangle.bounds.se.eql(50, 21)).to.be(true);
+      expect(bounds.se.eql(50, 21)).to.be(true);
     });
 
     it("should have a sw", function () {
-      expect(rectangle.bounds.sw.eql(50, 20)).to.be(true);
+      expect(bounds.sw.eql(50, 20)).to.be(true);
     });
 
     it("should have a n", function () {
-      expect(rectangle.bounds.n.eql(51, 20.5)).to.be(true);
+      expect(bounds.n.eql(51, 20.5)).to.be(true);
     });
 
     it("should have a e", function () {
-      expect(rectangle.bounds.e.eql(50.5, 21)).to.be(true);
+      expect(bounds.e.eql(50.5, 21)).to.be(true);
     });
 
     it("should have a s", function () {
-      expect(rectangle.bounds.s.eql(50, 20.5)).to.be(true);
+      expect(bounds.s.eql(50, 20.5)).to.be(true);
     });
 
     it("should have a w", function () {
-      expect(rectangle.bounds.w.eql(50.5, 20)).to.be(true);
+      expect(bounds.w.eql(50.5, 20)).to.be(true);
     });
   });
 
