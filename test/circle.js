@@ -1,6 +1,7 @@
 var expect = require("expect.js");
 var Position = require("../lib/position");
 var Circle = require("../lib/circle");
+var Rectangle = require("../lib/rectangle");
 
 describe("Circle", function () {
 
@@ -44,6 +45,24 @@ describe("Circle", function () {
       var circle = new Circle(51, 21, 200);
       var otherCircle = new Circle(51, 33, 200);
       expect(circle.eql(otherCircle)).to.be(false);
+    });
+  });
+
+  describe("toRectangle", function () {
+    it("should return a Rectangle", function () {
+      var circle = new Circle([51, 21], 200);
+      var rect = circle.toRectangle();
+      expect(rect).to.be.a(Rectangle);
+      expect(rect.n).to.eql(51.0018000018);
+      expect(rect.e).to.eql(21.002860231173);
+      expect(rect.s).to.eql(50.9981999982);
+      expect(rect.w).to.eql(20.997139768827);
+      expect(rect.center.lat).to.eql(circle.lat);
+      expect(rect.center.lon).to.eql(circle.lon);
+
+      // For good measure check it converts back
+      var newCircle = rect.toCircle();
+      expect(newCircle.eql(circle)).to.be(true);
     });
   });
 });
