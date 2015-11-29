@@ -1,5 +1,6 @@
 var expect = require("expect.js");
 var Points = require("../lib/points");
+var Rectangle = require("../lib/rectangle");
 
 describe("Points", function () {
 
@@ -8,21 +9,31 @@ describe("Points", function () {
       var points = new Points(["51,21", "45,15"]);
       expect(points).to.be.a(Points);
     });
+  });
 
-    it("should calculate a center", function () {
-      var points = new Points(["40,20", "50,10"]);
-      expect(points.center.eql("45,15")).to.be(true);
-    });
-
-    it("should calculate a circle", function () {
-      var points = new Points(["40,20", "50,10"]);
-      expect(points.circle.eql("45,15", 787967)).to.be(true);
+  describe("getRectangle", function () {
+    it("should return a Rectangle", function () {
+      var points = new Points(["51,21", "45,15"]);
+      expect(points.getRectangle()).to.be.a(Rectangle);
     });
 
     it("should calculate a rectangle", function () {
       var points = new Points(["40,20", "50,10"]);
-      expect(points.rectangle.eql(50, 20, 40, 10)).to.be(true);
+      expect(points.getRectangle().eql(50, 20, 40, 10)).to.be(true);
     });
+  });
 
+  describe("getCenter", function () {
+    it("should calculate a center", function () {
+      var points = new Points(["40,20", "50,10"]);
+      expect(points.getCenter().eql("45,15")).to.be(true);
+    });
+  });
+
+  describe("getCircle", function () {
+    it("should calculate a circle", function () {
+      var points = new Points(["40,20", "50,10"]);
+      expect(points.getCircle().eql("45,15", 555659)).to.be(true);
+    });
   });
 });

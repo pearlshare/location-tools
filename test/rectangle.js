@@ -2,7 +2,7 @@ var expect = require("expect.js");
 var Position = require("../lib/position");
 var Rectangle = require("../lib/rectangle");
 
-describe.only("Rectangle", function () {
+describe("Rectangle", function () {
 
   describe("constructor", function () {
 
