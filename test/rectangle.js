@@ -138,7 +138,7 @@ describe("Rectangle", function () {
       var rectangle = new Rectangle(51, 21, 50, 20);
       var circle = rectangle.toCircle();
       expect(circle.center.eql(new Position(50.5, 20.5))).to.be(true);
-      expect(circle.radius).to.eql(35474.5);
+      expect(circle.radius).to.eql(35474.453);
     });
   });
 
