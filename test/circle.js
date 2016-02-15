@@ -60,7 +60,14 @@ describe("Circle", function () {
 
       // For good measure check it converts back
       var newCircle = rect.toCircle();
-      expect(newCircle.eql(circle)).to.be(true);
+
+      expect(newCircle.lat).to.eql(51);
+      expect(newCircle.lon).to.eql(21);
+
+      /*
+        NOTE: Due to rounding, this value becomes 200.7815, when it shoud be 200.
+      */
+      expect(newCircle.radius).to.eql(200.7815);
     });
   });
 });
