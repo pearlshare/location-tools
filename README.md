@@ -15,11 +15,11 @@ A position is a point referenced via lat/lon. Positions can be created by provid
 ```js
 var lt = require("location-tools");
 
-var pos1 = lt.Position(52, 21);
+var pos1 = new lt.Position(52, 21);
 assert(pos1.lat === 52);
 assert(pos1.lon === 21);
 
-var pos2 = lt.Position(45, 15);
+var pos2 = new lt.Position(45, 15);
 assert(pos2.lat === 45);
 assert(pos2.lon === 15);
 
@@ -33,12 +33,12 @@ A circle is a circular area referenced via the center lat/lon and a radius. Posi
 ```js
 var lt = require("location-tools");
 
-var circle1 = lt.Circle(52, 21, 200);
+var circle1 = new lt.Circle(52, 21, 200);
 assert(circle1.lat === 52);
 assert(circle1.lon === 21);
 assert(circle1.radius === 200);
 
-var circle2 = lt.Circle(45, 15, 2000);
+var circle2 = new lt.Circle(45, 15, 2000);
 assert(circle2.lat === 45);
 assert(circle2.lon === 15);
 assert(circle2.lon === 2000);
@@ -53,12 +53,12 @@ A rectangle is defined by 4 bounds - north, east, south, west. The rectangle pro
 ```js
 var lt = require("location-tools");
 
-var rectangle1 = lt.Rectangle(52, 21, 50, 20);
+var rectangle1 = new lt.Rectangle(52, 21, 50, 20);
 assert(rectangle1.ne === 52);
 assert(rectangle1.lon === 21);
 assert(rectangle1.eql(reactangle1));
 
-var rectangle2 = lt.Rectangle(45, 15, 49, 19);
+var rectangle2 = new lt.Rectangle(45, 15, 49, 19);
 assert(rectangle2.lat === 45);
 assert(rectangle2.lon === 15);
 
@@ -80,5 +80,3 @@ assert(points.circle.eql([51, 1], 140391));
 assert(points.center.eql([51, 1]));
 assert(points.rectangle.eql(52, 2, 0, 50));
 ```
-
-

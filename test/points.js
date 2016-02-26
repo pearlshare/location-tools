@@ -43,7 +43,7 @@ describe("Points", function () {
   describe("getCircle", function () {
     it("should calculate a circle", function () {
       var points = new Points(["40,20", "50,10"]);
-      expect(points.getCircle().eql(45, 15, 393983.652)).to.be(true);
+      expect(points.getCircle().eql(45, 15, 555659.0055)).to.be(true);
     });
   });
 });

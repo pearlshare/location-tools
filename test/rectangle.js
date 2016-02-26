@@ -133,10 +133,19 @@ describe("Rectangle", function () {
     });
   });
 
-  describe("toCircle()", function () {
+  describe("toOuterCircle()", function () {
     it("should return a Circle instance", function () {
       var rectangle = new Rectangle(51, 21, 50, 20);
-      var circle = rectangle.toCircle();
+      var circle = rectangle.toOuterCircle();
+      expect(circle.center.eql(new Position(50.5, 20.5))).to.be(true);
+      expect(circle.radius).to.eql(55619.3405);
+    });
+  });
+
+  describe("toInnerCircle()", function () {
+    it("should return a Circle instance", function () {
+      var rectangle = new Rectangle(51, 21, 50, 20);
+      var circle = rectangle.toInnerCircle();
       expect(circle.center.eql(new Position(50.5, 20.5))).to.be(true);
       expect(circle.radius).to.eql(35474.453);
     });

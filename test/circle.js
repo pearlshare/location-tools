@@ -59,7 +59,7 @@ describe("Circle", function () {
       expect(rect.w).to.eql(20.997139768827452);
 
       // For good measure check it converts back
-      var newCircle = rect.toCircle();
+      var newCircle = rect.toOuterCircle();
 
       expect(newCircle.lat).to.eql(51);
       expect(newCircle.lon).to.eql(21);
