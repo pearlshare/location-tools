@@ -140,6 +140,18 @@ describe("Rectangle", function () {
       expect(circle.center.eql(new Position(50.5, 20.5))).to.be(true);
       expect(circle.radius).to.eql(55619.3405);
     });
+
+    it("should create a Circle instance from a point rectangle", function () {
+      var rectangle = new Rectangle({
+        e: 1.4,
+        n: 51.6,
+        s: 51.6,
+        w: 1.4
+      });
+      var circle = rectangle.toOuterCircle();
+      expect(circle.center.eql(new Position(51.6, 1.4))).to.be(true);
+      expect(circle.radius).to.eql(0);
+    });
   });
 
   describe("toInnerCircle()", function () {
@@ -148,6 +160,18 @@ describe("Rectangle", function () {
       var circle = rectangle.toInnerCircle();
       expect(circle.center.eql(new Position(50.5, 20.5))).to.be(true);
       expect(circle.radius).to.eql(35474.453);
+    });
+
+    it("should create a Circle instance from a point rectangle", function () {
+      var rectangle = new Rectangle({
+        e: 1.4,
+        n: 51.6,
+        s: 51.6,
+        w: 1.4
+      });
+      var circle = rectangle.toInnerCircle();
+      expect(circle.center.eql(new Position(51.6, 1.4))).to.be(true);
+      expect(circle.radius).to.eql(0);
     });
   });
 
