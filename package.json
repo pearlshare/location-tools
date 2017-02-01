@@ -1,11 +1,11 @@
 {
   "name": "location-tools",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/pearlshare/location-tools.git"
+    "url": "git+https://github.com/pearlshare/location-tools.git"
   },
   "scripts": {
     "test": "mocha",
